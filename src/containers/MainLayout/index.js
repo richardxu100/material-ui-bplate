@@ -1,31 +1,21 @@
 import React, { Component } from 'react';
 import { inject, observer } from 'mobx-react';
-import { Input, Navbar, Container, NavbarBrand, Nav, NavItem, NavLink, Button } from 'reactstrap';
+import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 @inject('commentStore') @observer
 export default class MainLayout extends Component {
+
+  componentWillMount = () => injectTapEventPlugin();
+
   render() {
     return (
       <div>
-        <Navbar style={{backgroundColor: '#373a3c'}} dark full>
-          <Container>
-            <NavbarBrand href="/">reactstrap</NavbarBrand>
-            <Nav className="float-xs-right" navbar>
-              <NavItem>
-                <NavLink href="/components/">Components</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="https://github.com/reactstrap/reactstrap">Github</NavLink>
-              </NavItem>
-              <NavItem className="float-md-right" style={{float: 'right'}}>
-                <Button outline color="info">Search</Button>
-              </NavItem>
-              <NavItem className="float-md-right" style={{float: 'right'}}>
-                <Input placeholder="Search..." />
-              </NavItem>
-            </Nav>
-          </Container>
-        </Navbar>
+        <AppBar
+          title="App"
+          showMenuIconButton={false}
+          iconElementRight={<FlatButton label="Save" />} />
         {React.cloneElement(this.props.children, this.props)}
       </div>
     )
