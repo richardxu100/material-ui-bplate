@@ -1,2 +1,2 @@
-# React Node Boilerplate
-A react, node, reactstrap, boilerplate ready to be deployed to heroku!
+# Material-UI Boilerplate
+A react, node, material-ui, boilerplate ready to be deployed to heroku!
